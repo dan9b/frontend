@@ -15,14 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile.dev --tag fronend:$(date +%s)
-      
-  test:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Run the docker image
-      run: docker run frontend:$(date +%s)
-  
+      run: docker compose up --build
