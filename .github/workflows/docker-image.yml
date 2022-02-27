@@ -15,4 +15,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker compose up --build
+    - run: docker build -f Dockerfile.dev -t frontend:latest
+    - run: docker run frontend:latest npm run test -- --coverage
